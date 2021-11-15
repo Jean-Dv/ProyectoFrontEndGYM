@@ -1,0 +1,17 @@
+
+<div class="container contador">
+  <div class="row text-center  mt-5">
+    <div class="col-md-12 col-12">
+      <button (click)=" restar() "  class="btn btn-danger bmd-btn-fab bmd-btn-fab-sm">
+        <i class="zmdi zmdi-minus"></i>
+      </button>
+      <span id="pantalla"> {{ numero }} </span>
+      <button (click)=" sumar() "  class="btn btn-primary bmd-btn-fab bmd-btn-fab-sm">
+        <i class="zmdi zmdi-plus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="container text-center btn-actualizar">
+    <button class="btn btn-primary" value="actualizar">actualizar</button>
+  </div>
+</div>

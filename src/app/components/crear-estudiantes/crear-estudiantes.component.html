@@ -1,0 +1,26 @@
+
+
+<div class="container tabla-crear">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card mt-3">
+                <div class="card-header text-center">
+                    <strong>{{ titulo }}</strong>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="estudianteForm" (ngSubmit)="addEstudiante()">
+                        <div class="mb-3">
+                          <input formControlName="documento" type="number" class="form-control caja" id="documento" name="documento" placeholder="Documento">
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="nombre" type="text" class="form-control caja" id="nombre" name="nombre" placeholder="Nombre">
+                          </div>
+                        <button type="submit" class="btn btn-success">Enviar</button>
+                        <button type="submit" class="btn btn-secondary float-end" [routerLink]="['/listar-estudiantes']" >Volver</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
