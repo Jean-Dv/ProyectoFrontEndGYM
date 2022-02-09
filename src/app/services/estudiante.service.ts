@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
 import { Estudiante } from '../models/Estudiante';
 
 @Injectable({
@@ -10,6 +10,12 @@ import { Estudiante } from '../models/Estudiante';
 export class EstudianteService {
 
   url : string = 'http://localhost:8000/api/estudiante/';
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -25,4 +31,27 @@ export class EstudianteService {
     return this.http.delete(this.url+id);
   }
 
+  findEstudiante(id: any): Observable<any> {
+    return this.http.get(this.url+id)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+
+  updateEstudiante(id: any, estudiante: Estudiante): Observable<any> {
+    return this.http.put(this.url + id, estudiante, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandler)
+      )
+  }
+
+  errorHandler(error: any){
+    let errorMsg = '';
+    if (error.error instanceof ErrorEvent) {
+      errorMsg = error.error.message;
+    } else {
+      errorMsg = `Error code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(errorMsg);
+  }
 }

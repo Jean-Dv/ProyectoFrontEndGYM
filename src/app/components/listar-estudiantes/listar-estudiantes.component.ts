@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EstudianteService } from '../../services/estudiante.service';
 import { Estudiante } from '../../models/Estudiante';
@@ -31,6 +31,7 @@ export class ListarEstudiantesComponent implements OnInit {
 
   deleteEstudiante(id: any): void {
     this._estudianteService.deleteEstudiante(id).subscribe(data => {
+      this.listaEstudiantes = this.listaEstudiantes.filter(item => item.id !== id);
       console.log(data);
     })
   }

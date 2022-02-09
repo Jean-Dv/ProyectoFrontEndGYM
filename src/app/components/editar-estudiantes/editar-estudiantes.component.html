@@ -6,15 +6,15 @@
                     <strong>Editar Estudiante</strong>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form novalidate [formGroup]="estudianteForm" (ngSubmit)="updateEstudiante()">
                         <div class="mb-3">
                           <input type="number" class="form-control" id="documento" name="documento" placeholder="Documento">
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
                           </div>
-                        <button type="submit" class="btn btn-success">Enviar</button>
-                        <button type="submit" class="btn btn-secondary float-end" [routerLink]="['/']" >Volver</button>
+                        <button type="submit" class="btn btn-success"  [disabled]="!estudianteForm.valid">Enviar</button>
+                        <button type="submit" class="btn btn-secondary float-end" [routerLink]="['/listar-estudiantes']" >Volver</button>
                       </form>
                 </div>
             </div>
