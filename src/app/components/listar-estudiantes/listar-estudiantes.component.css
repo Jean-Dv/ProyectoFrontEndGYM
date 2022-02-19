@@ -1,0 +1,15 @@
+.tabla-listar{
+    padding-top: 3%;
+}
+.fas {
+    cursor: pointer;
+    margin-left: 5px;
+}
+.card{
+    background: rgba( 178, 187, 8, 0.6 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 6.5px );
+-webkit-backdrop-filter: blur( 6.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}

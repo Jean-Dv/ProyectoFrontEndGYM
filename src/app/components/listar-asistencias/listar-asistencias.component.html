@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-header text-center">
+          Lista de Asistencia
+        </div>
+        <div class="card-body text-center mt-5">
+          <button class="btn btn-primary float-end"
+                  [routerLink]="['/crear-asistencias']" >
+            Ingresar Asistencia</button>
+          <table
+            *ngIf="listaAsistencias.length > 0"
+            class="table table-striped table-hover">
+            <thead>
+            <tr>
+              <th scope="col">Documento</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let asistencia of listaAsistencias">
+              <td>{{ asistencia.documento }}</td>
+              <td>{{ asistencia.fecha }}</td>
+              <td>
+                <!--
+                  <i class="fas fa-edit text-primary"
+                     [routerLink]="['/editar-asistencias/',asistencia.id]"></i>
+                 -->
+                <i class="fas fa-trash-alt text-danger"
+                   (click)="deleteAsistencia(asistencia.id)" role="button"></i>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

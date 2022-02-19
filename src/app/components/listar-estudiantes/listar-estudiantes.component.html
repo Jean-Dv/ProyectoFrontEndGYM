@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-header text-center">
+          Lista de Estudiantes
+        </div>
+        <div class="card-body text-center mt-5">
+          <button class="btn btn-primary float-end"
+                  [routerLink]="['crear-estudiantes']" >
+            Ingresar Estudiante</button>
+          <table
+            *ngIf="listaEstudiantes.length > 0"
+            class="table table-striped table-hover">
+            <thead>
+            <tr>
+              <th scope="col">Documento</th>
+              <th scope="col">Nombre Estudiante</th>
+              <th scope="col">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let estudiante of listaEstudiantes">
+              <td>{{ estudiante.documento }}</td>
+              <td>{{ estudiante.nombre }}</td>
+              <td>
+                <!--
+                  <i class="fas fa-edit text-primary"
+                     [routerLink]="['/editar-estudiantes/',estudiante.id]"></i>
+                 -->
+                <i class="fas fa-trash-alt text-danger"
+                   (click)="deleteEstudiante(estudiante.id)" role="button"></i>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
