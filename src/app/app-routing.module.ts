@@ -4,12 +4,14 @@ import { CrearEstudiantesComponent } from './components/crear-estudiantes/crear-
 import { ListarEstudiantesComponent } from './components/listar-estudiantes/listar-estudiantes.component';
 import { CrearAsistenciasComponent } from './components/crear-asistencias/crear-asistencias.component';
 import { ListarAsistenciasComponent } from './components/listar-asistencias/listar-asistencias.component';
+import { AdminComponent } from "./components/admin/admin.component";
 
 const routes: Routes = [
   { path: '', component: ListarEstudiantesComponent},
   { path: 'crear-estudiantes', component: CrearEstudiantesComponent},
   { path: 'crear-asistencias', component: CrearAsistenciasComponent},
   { path: 'listar-asistencias', component: ListarAsistenciasComponent},
+  { path: 'admin', component: AdminComponent},
   { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 

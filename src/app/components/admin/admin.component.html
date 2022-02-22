@@ -1,0 +1,19 @@
+<div class="container tabla-crear">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card mt-3">
+        <div class="card-header text-center">
+            <mat-button-toggle-group #mostrar='matButtonToggleGroup'  >
+              <mat-button-toggle value="mostrar-asistencias">Asistencias</mat-button-toggle>
+              <mat-button-toggle value="listar-estudiantes">listar estudiantes</mat-button-toggle>
+              <mat-button-toggle value="crear-estudiantes">crear estudiantes</mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+      </div>
+        <div *ngIf="mostrar.value=='mostrar-asistencias'"><app-listar-asistencias></app-listar-asistencias></div>
+        <div *ngIf="mostrar.value=='crear-estudiantes'"><app-crear-estudiantes></app-crear-estudiantes></div>
+        <div *ngIf="mostrar.value=='listar-estudiantes'"><app-listar-estudiantes></app-listar-estudiantes></div>
+    </div>
+
+  </div>
