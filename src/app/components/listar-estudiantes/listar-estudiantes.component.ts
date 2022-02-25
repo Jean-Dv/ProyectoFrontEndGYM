@@ -3,7 +3,6 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EstudianteService } from '../../services/estudiante.service';
 import { Estudiante } from '../../models/Estudiante';
-//import { ContadorComponent} from "../contador/contador.component";
 
 @Component({
   selector: 'app-listar-estudiantes',
@@ -12,7 +11,7 @@ import { Estudiante } from '../../models/Estudiante';
 })
 
 export class ListarEstudiantesComponent implements OnInit {
-
+  titulo: string="Lista de Estudiantes";
   listaEstudiantes : Estudiante[] = [];
 
   constructor(private _router: Router,

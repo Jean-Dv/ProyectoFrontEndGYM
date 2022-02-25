@@ -16,15 +16,18 @@ import { ListarAsistenciasComponent } from './components/listar-asistencias/list
 //admin
 import { AdminComponent } from './components/admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListarAsistenciaInicioComponent } from './components/listar-asistencia-inicio/listar-asistencia-inicio.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListarEstudiantesComponent,
-    CrearEstudiantesComponent,
     ContadorComponent,
+    CrearEstudiantesComponent,
     CrearAsistenciasComponent,
+    ListarEstudiantesComponent,
     ListarAsistenciasComponent,
+    ListarAsistenciaInicioComponent,
     AdminComponent
   ],
   imports: [
@@ -33,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     MatButtonToggleModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

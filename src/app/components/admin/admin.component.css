@@ -7,10 +7,17 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .mat-button-toggle {
-
+  background-color: rgba(255, 255, 255, 0);
+  color: #000000;
+  border-radius: 20px;
+  border-color: rgba(255, 255, 255, 0);
 }
 .mat-button-toggle-checked {
   background-color: rgba( 178, 187, 8, 0.6 );
   color: #fff;
   border-radius: 20px;
+  border-color: rgba(255, 255, 255, 0);
+}
+.mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
+  border: solid 0px rgba(0, 0, 0, 0.12);
 }
