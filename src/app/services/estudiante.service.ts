@@ -32,7 +32,7 @@ export class EstudianteService {
   }
 
   findDocumento(documento: any): Observable<any> {
-    return this.http.get(this.url+'validardocumento',documento);
+    return this.http.get('http://localhost:8000/api/estudiante/validardocumento/',documento);
 
   }
 

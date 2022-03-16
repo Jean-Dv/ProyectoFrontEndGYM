@@ -28,8 +28,11 @@ export class ListarAsistenciasComponent implements OnInit {
     this._asistenciaService.getAsistencias().subscribe(data => {
       console.log(data);
       this.listaAsistencias = data.asistencias;
+
     });
   }
+
+
 
   deleteAsistencia(id: any): void {
     Swal.fire({

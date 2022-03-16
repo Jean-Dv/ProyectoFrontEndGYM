@@ -9,13 +9,16 @@ import { ExportFileService } from '../../services/export-file.service'
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private exportfile: ExportFileService) { }
+  constructor(private exportfile: ExportFileService) {
+  }
 
   ngOnInit(): void {
   }
 
-  exportar () {
-    this.exportfile.getExcel()
-}
 
+  exportar() {
+    this.exportfile.getExcel()
+    window.open('http://127.0.0.1:8000/api/excel','_blank')
+
+  }
 }

@@ -4,9 +4,10 @@ import { AsistenciaService } from '../../services/asistencia.service';
 
 import { EstudianteService } from '../../services/estudiante.service';
 import { Asistencia } from '../../models/Asistencia';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import {MyValidators} from '../../util/validation';
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-crear-asistencias',
@@ -26,7 +27,7 @@ export class CrearAsistenciasComponent implements OnInit {
               public datepipe: DatePipe) {
 
     this.asistenciaForm = this.fb.group({
-      documento: ['', Validators.required , MyValidators.docCheck(this._estudianteSevice)],
+      documento: ['', Validators.required , this.docCheck()],
       fecha: ['', Validators.required],
     });
 
@@ -35,6 +36,26 @@ export class CrearAsistenciasComponent implements OnInit {
   }
   ngOnInit(){
   }
+  docCheck() {
+    return (control: AbstractControl) => {
+      const value = control.value;
+      return this._estudianteSevice.findDocumento(value)
+        .pipe(
+          map((response: any) => {
+            console.log(response)
+            /*
+            if (resultado == true) {
+              console.log('hola')
+              return {available: true};
+            }else{
+              console.log('uwu')
+              return {available: false}
+            }**/
+          })
+        );
+    };
+  }
+
   /**
    * Obtiene el dato documento para luego ser validado por
    * @docCheck
@@ -58,7 +79,6 @@ export class CrearAsistenciasComponent implements OnInit {
    *  @fecha
    * */
   addAsistencia() : void {
-
     const asistencia : Asistencia = {
 
       documento: this.asistenciaForm.get('documento')?.value,
@@ -67,7 +87,6 @@ export class CrearAsistenciasComponent implements OnInit {
     console.log(asistencia);
     this._asistenciaService.addAsistencia(asistencia).subscribe(data => {
       console.log(data);
-      window.location.reload();
     })
   }
 }

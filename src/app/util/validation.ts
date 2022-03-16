@@ -12,10 +12,13 @@ export class MyValidators {
       return service.findDocumento(value)
         .pipe(
           map((response: any) => {
-            const resultado = response.resultado;
-            if (!resultado) {
+            console.log(response)
+            const resultado = response.body.resultado;
+            if (resultado == true) {
+              console.log('hola')
               return {available: true};
             }else{
+              console.log('uwu')
               return {available: false}
             }
           })
