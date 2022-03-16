@@ -27,7 +27,7 @@ export class CrearAsistenciasComponent implements OnInit {
               public datepipe: DatePipe) {
 
     this.asistenciaForm = this.fb.group({
-      documento: ['', Validators.required , this.docCheck()],
+      documento: ['', Validators.required , MyValidators.docCheck(this._estudianteSevice)],
       fecha: ['', Validators.required],
     });
 
@@ -35,25 +35,6 @@ export class CrearAsistenciasComponent implements OnInit {
 
   }
   ngOnInit(){
-  }
-  docCheck() {
-    return (control: AbstractControl) => {
-      const value = control.value;
-      return this._estudianteSevice.findDocumento(value)
-        .pipe(
-          map((response: any) => {
-            console.log(response)
-            /*
-            if (resultado == true) {
-              console.log('hola')
-              return {available: true};
-            }else{
-              console.log('uwu')
-              return {available: false}
-            }**/
-          })
-        );
-    };
   }
 
   /**
@@ -80,11 +61,9 @@ export class CrearAsistenciasComponent implements OnInit {
    * */
   addAsistencia() : void {
     const asistencia : Asistencia = {
-
       documento: this.asistenciaForm.get('documento')?.value,
       fecha: this.date
     };
-    console.log(asistencia);
     this._asistenciaService.addAsistencia(asistencia).subscribe(data => {
       console.log(data);
     })

@@ -13,7 +13,7 @@
             <div class="mb-3">
               <input formControlName="documento" type="number"  class="form-control caja" id="documento" name="documento" placeholder="Documento">
             </div>
-            <mat-error *ngIf="DocumentoField.hasError('available')">
+            <mat-error *ngIf="DocumentoField.hasError('notAvailable')">
               Este Documento no se encuentra en nuestra base de datos
               Por favor ve con tu tutor y coméntale situación.
             </mat-error><!--

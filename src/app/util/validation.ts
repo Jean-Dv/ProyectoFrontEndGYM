@@ -12,15 +12,7 @@ export class MyValidators {
       return service.findDocumento(value)
         .pipe(
           map((response: any) => {
-            console.log(response)
-            const resultado = response.body.resultado;
-            if (resultado == true) {
-              console.log('hola')
-              return {available: true};
-            }else{
-              console.log('uwu')
-              return {available: false}
-            }
+            return response.resultado ? null : {notAvailable: true}
           })
         );
     };
