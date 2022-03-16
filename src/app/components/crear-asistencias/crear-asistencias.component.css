@@ -13,11 +13,8 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .caja{
-  background: rgba(57, 59, 2, 0.6);
-  box-shadow: 0 8px 32px 0 rgba(12, 58, 2, 0.233);
-  backdrop-filter: blur( 6.5px );
-  -webkit-backdrop-filter: blur( 6.5px );
+  background: rgba( 178, 187, 8, 0.3    );
+  backdrop-filter: blur( 5px );
+  -webkit-backdrop-filter: blur( 5px );
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-
 }

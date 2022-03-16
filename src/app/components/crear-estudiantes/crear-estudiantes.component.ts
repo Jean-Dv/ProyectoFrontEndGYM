@@ -34,7 +34,8 @@ export class CrearEstudiantesComponent implements OnInit {
     console.log(estudiante);
     this._estudianteService.addEstudiante(estudiante).subscribe(data => {
       console.log(data);
-      this._router.navigate(['/listar-estudiantes']);
+      window.location.reload();
     })
+
   }
 }

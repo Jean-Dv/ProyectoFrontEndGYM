@@ -1,3 +1,4 @@
+
 <div class="container tabla-crear">
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
@@ -8,15 +9,22 @@
         <div class="card-body">
 
 
-          <form [formGroup]="asistenciaForm" #fecha (ngSubmit)="addAsistencia()">
+          <form [formGroup]="asistenciaForm"  (ngSubmit)="addAsistencia()">
             <div class="mb-3">
               <input formControlName="documento" type="number"  class="form-control caja" id="documento" name="documento" placeholder="Documento">
-            </div>
+            </div><!--
+            <mat-error *ngIf="DocumentoField.hasError('available')">
+              Este Documento no se encuentra en nuestra base de datos
+              Por favor ve con tu tutor y coméntale situación.
+            </mat-error>
+
+            ----------------------------------------
+            <div *ngIf="asistenciaForm.get('documento')"></div>-->
             <button type="submit" class="btn btn-success">Enviar</button>
-            <button type="submit"  class="btn btn-secondary float-end"  [routerLink]="['/listar-asistencias']" >Volver</button>
+            <!--  <button type="submit"  class="btn btn-secondary float-end"  [routerLink]="['/listar-asistencias']" >Volver</button>-->
           </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>

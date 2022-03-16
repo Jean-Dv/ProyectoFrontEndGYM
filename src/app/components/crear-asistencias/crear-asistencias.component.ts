@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AsistenciaService } from '../../services/asistencia.service';
+
+import { EstudianteService } from '../../services/estudiante.service';
 import { Asistencia } from '../../models/Asistencia';
-import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import {MyValidators} from '../../util/validation';
 
 @Component({
   selector: 'app-crear-asistencias',
@@ -13,21 +16,31 @@ import { DatePipe } from '@angular/common';
 })
 
 export class CrearAsistenciasComponent implements OnInit {
-
-  titulo: string;
   asistenciaForm : FormGroup;
+  titulo: string;
 
   constructor(private _router: Router,
               private _asistenciaService: AsistenciaService,
+              private _estudianteSevice: EstudianteService,
               private fb: FormBuilder,
               public datepipe: DatePipe) {
 
     this.asistenciaForm = this.fb.group({
-      documento: ['', Validators.required],
+      documento: ['', Validators.required , MyValidators.docCheck(this._estudianteSevice)],
       fecha: ['', Validators.required],
     });
+
     this.titulo = "Crear Asistencia";
 
+  }
+  ngOnInit(){
+  }
+  /**
+   * Obtiene el dato documento para luego ser validado por
+   * @docCheck
+   * */
+  get DocumentoField() {
+    return this.asistenciaForm.get('documento');
   }
 
   getformattedDate(){
@@ -38,9 +51,12 @@ export class CrearAsistenciasComponent implements OnInit {
   }
 
   date = new Date();
-  ngOnInit(){
-
-  }
+  /**
+   * Manda Asistencia al api.
+   * datos:
+   *  @documento
+   *  @fecha
+   * */
   addAsistencia() : void {
 
     const asistencia : Asistencia = {
@@ -51,7 +67,8 @@ export class CrearAsistenciasComponent implements OnInit {
     console.log(asistencia);
     this._asistenciaService.addAsistencia(asistencia).subscribe(data => {
       console.log(data);
-      this._router.navigate(['/listar-asistencias']);
+      window.location.reload();
     })
   }
 }
+

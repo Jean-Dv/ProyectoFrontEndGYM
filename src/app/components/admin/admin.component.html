@@ -1,4 +1,4 @@
-<button mat-fab color="warn" aria-label="Example icon button with a home icon" [routerLink]="['']" >
+<button class="btn-flotante" mat-fab color="warn" aria-label="Example icon button with a home icon" [routerLink]="['']" >
   <mat-icon >home</mat-icon>
 </button>
 <div class="container tabla-crear">
@@ -10,6 +10,7 @@
               <mat-button-toggle value="mostrar-asistencias">Asistencias</mat-button-toggle>
               <mat-button-toggle value="listar-estudiantes">listar estudiantes</mat-button-toggle>
               <mat-button-toggle value="crear-estudiantes">crear estudiantes</mat-button-toggle>
+              <mat-button-toggle  (click)="exportar()">exportar informe</mat-button-toggle>
             </mat-button-toggle-group>
           </div>
         </div>

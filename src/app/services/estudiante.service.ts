@@ -31,11 +31,9 @@ export class EstudianteService {
     return this.http.delete(this.url+id);
   }
 
-  findEstudiante(id: any): Observable<any> {
-    return this.http.get(this.url+id)
-      .pipe(
-        catchError(this.errorHandler)
-      )
+  findDocumento(documento: any): Observable<any> {
+    return this.http.get(this.url+'validardocumento',documento);
+
   }
 
   updateEstudiante(id: any, estudiante: Estudiante): Observable<any> {

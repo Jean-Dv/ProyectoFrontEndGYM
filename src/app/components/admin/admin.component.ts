@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ExportFileService } from '../../services/export-file.service'
+
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private exportfile: ExportFileService) { }
 
   ngOnInit(): void {
   }
+
+  exportar () {
+    this.exportfile.getExcel()
+}
 
 }

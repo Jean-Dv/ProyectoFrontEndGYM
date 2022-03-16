@@ -18,6 +18,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListarAsistenciaInicioComponent } from './components/listar-asistencia-inicio/listar-asistencia-inicio.component';
 import {MatIconModule} from "@angular/material/icon";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {MatIconModule} from "@angular/material/icon";
     MatButtonToggleModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

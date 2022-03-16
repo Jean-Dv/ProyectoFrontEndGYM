@@ -15,7 +15,7 @@
                         <div class="mb-3">
                             <input formControlName="nombre" type="text" class="form-control caja" id="nombre" name="nombre" placeholder="Nombre">
                           </div>
-                        <button type="submit" class="btn btn-success">Enviar</button>
+                        <button type="submit" [disabled]="!estudianteForm.valid" class="btn btn-success">Enviar</button>
                       </form>
                 </div>
             </div>
